@@ -23,7 +23,9 @@ return function() {
   var name       = getName(args);
   var target     = getTarget(args);
   var properties = getProps(args);
+  var parentProperties = target.prototype.properties
   function ErrorCtor(message, obj) {
+    attachProps(this, parentProperties);
     attachProps(this, properties);
     attachProps(this, obj);
     this.message = (message || this.message);
@@ -38,6 +40,7 @@ return function() {
   Err.prototype = target['prototype'];
   ErrorCtor.prototype = new Err();
   ErrorCtor.prototype.name = ('' + name) || 'CustomError';
+  ErrorCtor.prototype.properties = properties
   return ErrorCtor;
 };
 
