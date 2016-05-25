@@ -27,7 +27,8 @@ return function() {
   function ErrorCtor(message, obj) {
     attachProps(this, parentProperties);
     attachProps(this, properties);
-    attachProps(this, obj);
+    this.meta = {}
+    attachProps(this.meta, obj);
     this.message = (message || this.message);
     if (message instanceof Error) {
       this.message = message.message;
