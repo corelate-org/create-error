@@ -1,5 +1,5 @@
 {
-  "name": "create-error",
+  "name": "@corelate/create-error",
   "version": "0.3.1",
   "description": "Simple helper for sub-classing the Error object",
   "main": "create-error.js",
