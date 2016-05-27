@@ -1,4 +1,4 @@
-//     create-error.js 0.4.0
+//     create-error.js 0.4.1
 //     (c) 2013 Tim Griesser
 //     This source may be freely distributed under the MIT license.
 (function(factory) {
@@ -27,8 +27,8 @@ return function() {
   function ErrorCtor(message, obj) {
     attachProps(this, parentProperties);
     attachProps(this, properties);
-    this.meta = {}
-    attachProps(this.meta, obj);
+    this.metadata = {}
+    attachProps(this.metadata, obj);
     this.message = (message || this.message);
     if (message instanceof Error) {
       this.message = message.message;
